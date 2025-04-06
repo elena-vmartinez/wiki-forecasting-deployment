@@ -1,6 +1,4 @@
 # Wikipedia Page Views Forecasting
-
-## wiki-forecasting-deployment
 This project is a web application built using Flask that forecasts the next day's Wikipedia page views based on the last 30 days of data. The app uses a deep learning model to make predictions and visualizes past traffic data for the selected page.
 
 View publicly at: https://wikiforecasting.replit.app/
