@@ -1,0 +1,6 @@
+# Required libraries
+
+flask
+tensorflow
+pandas
+numpy

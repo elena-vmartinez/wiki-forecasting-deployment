@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wikipedia Page Views Forecast</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='light.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Wikipedia Page Views Forecast</h1>
+
+        <form method="post">
+            <label for="page">Select a page:</label>
+            <select name="page" id="page">
+                {% for page in pages %}
+                    <option value="{{ page }}" {% if page == page_selected %}selected{% endif %}>{{ page }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if error_message %}
+            <div class="error">{{ error_message }}</div>
+        {% elif prediction %}
+            <div class="result">
+                <p><strong>Predicted page views:</strong> {{ prediction }}</p>
+                <p><strong>Confidence score:</strong> {{ confidence * 100 }}%</p>
+                <p><strong>Traffic level:</strong> {{ traffic_level }}</p>
+                {% if image_path %}
+                    <img src="{{ url_for('static', filename='traffic_plot.png') }}" alt="Traffic plot">
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
